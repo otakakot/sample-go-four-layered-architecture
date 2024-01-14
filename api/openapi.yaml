@@ -1,0 +1,255 @@
+openapi: 3.0.3
+info:
+  title: Sample Go Four Layered Architecture
+  description: This is a sample API for Go Four Layered Architecture.
+  version: 0.0.1
+  contact:
+    email: kotaro.otaka@example.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: http://localhost:8080
+    description: localhost server
+tags:
+  - name: Health
+    description: Health
+  - name: Sample
+    description: Sample
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Health
+      description: Health
+      operationId: health
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponseSchema"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseSchema"
+  /samples:
+    get:
+      tags:
+        - Sample
+      summary: Get all sample items
+      description: Get all sample items
+      operationId: listSample
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListSampleResponseSchema"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseSchema"
+    post:
+      tags:
+        - Sample
+      summary: Create a new sample item
+      description: Create a new sample item
+      operationId: createSample
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSampleRequestSchema"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateSampleResponseSchema"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseSchema"
+  /samples/{id}:
+    get:
+      tags:
+        - Sample
+      summary: Read a specific sample item
+      description: Read a specific sample item
+      operationId: readSample
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReadSampleResponseSchema"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseSchema"
+    put:
+      tags:
+        - Sample
+      summary: Update a specific sample item
+      description: Update a specific sample item
+      operationId: updateSample
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSampleRequestSchema"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateSampleResponseSchema"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseSchema"
+    delete:
+      tags:
+        - Sample
+      summary: Delete a specific sample item
+      description: Delete a specific sample item
+      operationId: deleteSample
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: No Content
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseSchema"
+components:
+  schemas:
+    Sample:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of the sample item
+        message:
+          type: string
+          description: message
+          example: message
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time when the sample item was created
+        updated_at:
+          type: string
+          format: date-time
+          description: The date and time when the sample item was updated
+      required:
+        - id
+        - message
+        - created_at
+        - updated_at
+    HealthResponseSchema:
+      type: object
+      properties:
+        message:
+          type: string
+          description: message
+          example: message
+      required:
+        - message
+    ListSampleResponseSchema:
+      type: object
+      properties:
+        samples:
+          type: array
+          items:
+            $ref: "#/components/schemas/Sample"
+      required:
+        - samples
+    CreateSampleRequestSchema:
+      type: object
+      properties:
+        message:
+          type: string
+          description: message
+          example: message
+      required:
+        - message
+    CreateSampleResponseSchema:
+      type: object
+      properties:
+        sample:
+          $ref: "#/components/schemas/Sample"
+      required:
+        - sample
+    ReadSampleResponseSchema:
+      type: object
+      properties:
+        sample:
+          $ref: "#/components/schemas/Sample"
+      required:
+        - sample
+    UpdateSampleRequestSchema:
+      type: object
+      properties:
+        message:
+          type: string
+          description: message
+          example: message
+      required:
+        - message
+    UpdateSampleResponseSchema:
+      type: object
+      properties:
+        sample:
+          $ref: "#/components/schemas/Sample"
+      required:
+        - sample
+    ErrorResponseSchema:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
