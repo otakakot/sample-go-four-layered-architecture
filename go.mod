@@ -6,7 +6,7 @@ require (
 	github.com/go-faster/errors v0.7.1
 	github.com/go-faster/jx v1.1.0
 	github.com/google/go-cmp v0.6.0
-	github.com/google/uuid v1.5.0
+	github.com/google/uuid v1.6.0
 	github.com/jackc/pgx/v5 v5.5.2
 	github.com/ogen-go/ogen v0.81.1
 	go.opentelemetry.io/otel v1.21.0
