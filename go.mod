@@ -8,19 +8,19 @@ require (
 	github.com/google/go-cmp v0.6.0
 	github.com/google/uuid v1.6.0
 	github.com/jackc/pgx/v5 v5.5.5
-	github.com/ogen-go/ogen v1.0.0
-	go.opentelemetry.io/otel v1.24.0
-	go.opentelemetry.io/otel/metric v1.24.0
-	go.opentelemetry.io/otel/trace v1.24.0
+	github.com/ogen-go/ogen v1.8.1
+	go.opentelemetry.io/otel v1.32.0
+	go.opentelemetry.io/otel/metric v1.32.0
+	go.opentelemetry.io/otel/trace v1.32.0
 	go.uber.org/multierr v1.11.0
 )
 
 require (
-	github.com/dlclark/regexp2 v1.11.0 // indirect
-	github.com/fatih/color v1.16.0 // indirect
+	github.com/dlclark/regexp2 v1.11.4 // indirect
+	github.com/fatih/color v1.18.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-faster/yaml v0.4.6 // indirect
-	github.com/go-logr/logr v1.4.1 // indirect
+	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20231201235250-de7065d80cb9 // indirect
@@ -29,11 +29,11 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/segmentio/asm v1.2.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
-	golang.org/x/crypto v0.21.0 // indirect
+	golang.org/x/crypto v0.29.0 // indirect
 	golang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8 // indirect
-	golang.org/x/net v0.22.0 // indirect
-	golang.org/x/sync v0.6.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/net v0.31.0 // indirect
+	golang.org/x/sync v0.9.0 // indirect
+	golang.org/x/sys v0.27.0 // indirect
+	golang.org/x/text v0.20.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
